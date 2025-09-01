@@ -19,7 +19,7 @@ router.post("/register", async (req, res) => {
             password: hash,
             fullname,
           });
-          let token = jwt.sign({ email, id: user._id }, "heyheyhlo");
+          let token = jwt.sign({ email, id: user._id }, process.env.JWT_KEY);
           res.cookie("token", token);
           res.send("User created");
         }
