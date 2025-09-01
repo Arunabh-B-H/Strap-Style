@@ -4,6 +4,7 @@ const app = express();
 const ownerRouter= require("./routes/ownerRouter")
 const usersRouter= require("./routes/usersRouter")
 const productsRouter= require("./routes/productsRouter")
+require("dotenv").config()
 
 const cookieParser = require("cookie-parser");
 const path = require("path");
