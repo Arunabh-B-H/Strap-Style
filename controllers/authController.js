@@ -62,8 +62,24 @@ module.exports.loginUser = async function (req, res) {
       let token = generateToken(user);
       res.cookie("token", token);
       res.send("You can login");
+    } else {
+      return res.send("Email or Password is incorrect");
     }
   });
+};
+// Add this function to your authController.js file
+
+
+
+module.exports.logout = function (req, res) {
+    // Check if the token cookie exists
+    if (req.cookies.token) {
+        // Clear the token cookie
+        res.clearCookie("token");
+    }
+    
+    // Redirect the user to the homepage
+    res.redirect("/");
 };
 
 // Export the function using a named export
